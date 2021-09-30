@@ -98,6 +98,10 @@ int main()
                             system("clear");
                             break;
                         }
+                        case '3':
+                        {
+                            break;
+                        }
                         default:
                         {
                             cout << "Invalid option\n";
@@ -119,6 +123,10 @@ int main()
                     cin.get();
                     system("clear");
                 }
+                break;
+            }
+            case '5':
+            {
                 break;
             }
             default:
@@ -187,7 +195,7 @@ void MenuSub()
     cout << "     ||||Substraction menu||||   \n";
     cout << "\n1. Date 1 - Date 2.";
     cout << "\n2. Date 2 - Date 1.";
-    cout << "\n5. Go back.\n";
+    cout << "\n3. Go back.\n";
     cout << "\nWhat do you want to do? ";
 }
 void PrintSub(Fecha Result, Fecha DateA, Fecha DateB)
