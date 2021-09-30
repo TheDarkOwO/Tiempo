@@ -1,6 +1,6 @@
 #include "Fecha.h"
 Fecha SetValuesDate();
-void Menu(), PrintDates(Fecha, Fecha), PrintAdd(Fecha, Fecha, Fecha), PrintSub();
+void Menu(), PrintDates(Fecha, Fecha), PrintAdd(Fecha, Fecha, Fecha), PrintSub(Fecha Result, Fecha DateA, Fecha DateB), MenuSub();
 using namespace std;
 
 /* cin.ignore();
@@ -16,7 +16,7 @@ int main()
     {
         Menu();
         cin >> Option;
-        system("cls");
+        system("clear");
         switch (Option)
         {
             case '1':
@@ -25,9 +25,9 @@ int main()
                 cout << "\nFirst Date complete, proceeding with the second date, input something to continue.\n";
                 cin.ignore();
                 cin.get();
-                system("cls");
+                system("clear");
                 Date2 = SetValuesDate();
-                system("cls");
+                system("clear");
                 Check = true;
                 break;
             }
@@ -39,7 +39,7 @@ int main()
                     cout << "\nInput something to continue.\n";
                     cin.ignore();
                     cin.get();
-                    system("cls ");
+                    system("clear");
                 }
                 else
                 {
@@ -47,7 +47,7 @@ int main()
                     cout << "\nInput something to continue.\n";
                     cin.ignore();
                     cin.get();
-                    system("cls");
+                    system("clear");
                 }
                 break;
             }
@@ -64,7 +64,60 @@ int main()
                     cout << "\nInput something to continue.\n";
                     cin.ignore();
                     cin.get();
-                    system("cls");
+                    system("clear");
+                }
+                break;
+            }
+            case '4':
+            {
+                if (Check)
+                {
+                    char SubOp = '0';
+                    while (SubOp != '3')
+                    {
+                        MenuSub();
+                        cin >> SubOp;
+                        system("clear");
+                        switch (SubOp)
+                        {
+                        case '1':
+                        {
+                            Fecha Date4 = Date1 - Date2;
+                            PrintAdd(Date4, Date1, Date2);
+                            cin.ignore();
+                            cin.get();
+                            system("clear");
+                            break;
+                        }
+                        case '2':
+                        {
+                            Fecha Date4 = Date2 - Date1;
+                            PrintAdd(Date4, Date1, Date2);
+                            cin.ignore();
+                            cin.get();
+                            system("clear");
+                            break;
+                        }
+                        default:
+                        {
+                            cout << "Invalid option\n";
+                            cout << "Returning to menu....\n";
+                            cout << "Input something to continue.\n";
+                            cin.ignore();
+                            cin.get();
+                            system("clear");
+                            break;
+                        }
+                        }
+                    }
+                }
+                else
+                {
+                    cout << "You need to fill the dates before doing this"; cout << "\n\n";
+                    cout << "\nInput something to continue.\n";
+                    cin.ignore();
+                    cin.get();
+                    system("clear");
                 }
                 break;
             }
@@ -75,7 +128,7 @@ int main()
                 cout << "Input something to continue.\n";
                 cin.ignore();
                 cin.get();
-                system("cls");
+                system("clear");
                 break;
             }
         }
@@ -93,7 +146,7 @@ void Menu()
     cout << "\n4. Substraction between.";
     cout << "\n5. End program.\n";
     cout << "\nWhat do you want to do? ";
-};
+}
 
 
 Fecha SetValuesDate()
@@ -121,10 +174,28 @@ void PrintDates(Fecha Date1Aux, Fecha Date2Aux)
 
 void PrintAdd(Fecha Result, Fecha DateA, Fecha DateB)
 {
-    cout << "     |||Addition menu|||   \n\n";
+    cout << "     |||Adition results menu|||   \n\n";
     cout << "The adition between [" << DateA << "] and [" << DateB << "] Gives: ["<< Result <<"]";
     cout << "\n\nInput something to continue.\n";
     cin.ignore();
     cin.get();
-    system("cls");
+    system("clear");
+}
+
+void MenuSub()
+{
+    cout << "     ||||Substraction menu||||   \n";
+    cout << "\n1. Date 1 - Date 2.";
+    cout << "\n2. Date 2 - Date 1.";
+    cout << "\n5. Go back.\n";
+    cout << "\nWhat do you want to do? ";
+}
+void PrintSub(Fecha Result, Fecha DateA, Fecha DateB)
+{
+    cout << "     |||Substraction results menu|||   \n\n";
+    cout << "The substraction between [" << DateA << "] and [" << DateB << "] Gives: [" << Result << "]";
+    cout << "\n\nInput something to continue.\n";
+    cin.ignore();
+    cin.get();
+    system("clear");
 }
