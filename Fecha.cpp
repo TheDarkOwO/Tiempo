@@ -10,7 +10,7 @@ Fecha::Fecha(int m, int d, int a)
 void Fecha::estableceFecha(int mm, int dd, int aa)
 {
     mes = (mm >= 1 && mm <= 12) ? mm : 1;
-    anio = (aa >= 1000 && aa <= 5000) ? aa : 1000;
+    anio = (aa >= 1900 && aa <= 2100) ? aa : 1000;
 
     if (mes == 2 && anioBisiesto(anio))
         dia = (dd >= 1 && dd <= 29) ? dd : 1;
@@ -80,14 +80,43 @@ ostream& operator<<(ostream& salida, const Fecha& d)
 
     return salida;
 }
-/*
-Fecha Fecha::operator+(Fecha Aux)
-{1
-    return;
-}
 
+Fecha Fecha::operator+(Fecha Other)
+{
+    Fecha Total;
+    Total = Other;
+    Total.anio = Total.anio + anio;
+    Total.mes = Total.mes + mes;
+    if (Total.mes > 12)
+    {
+        ++Total.anio;
+        Total.mes = Total.mes - 12;
+    }
+    for (int i = 0; i < dia; i++)
+    {
+        if (!finDeMes(Total.dia))
+        {
+            ++Total.dia;
+        }
+        else
+        {
+            if (Total.mes < 12)
+            {
+                ++Total.mes;
+                Total.dia = 1;
+            }
+            else
+            {
+                ++Total.anio;
+                Total.mes = 1;
+                Total.dia = 1;
+            }
+        }
+    }
+    return Total;
+}
+/*
 Fecha Fecha::operator-(Fecha Aux)
 {
 
-}
-*/
+}*/

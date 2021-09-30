@@ -1,6 +1,6 @@
 #include "Fecha.h"
 Fecha SetValuesDate();
-void Menu(), PrintDates(Fecha, Fecha);
+void Menu(), PrintDates(Fecha, Fecha), PrintAdd(Fecha, Fecha, Fecha), PrintSub();
 using namespace std;
 
 /* cin.ignore();
@@ -55,7 +55,8 @@ int main()
             {
                 if (Check)
                 {
-                    
+                    Fecha Date3 = Date1 + Date2;
+                    PrintAdd(Date3,Date1,Date2);
                 }
                 else
                 {
@@ -85,7 +86,7 @@ int main()
 
 void Menu()
 {
-    cout << "   ||||Calendar menu||||   \n";
+    cout << "     ||||Calendar menu||||   \n";
     cout << "\n1. Create or change two dates.";
     cout << "\n2. Print dates.";
     cout << "\n3. Addition between dates.";
@@ -98,7 +99,7 @@ void Menu()
 Fecha SetValuesDate()
 {
     int D, M, Y;
-    cout << "   |||Creation menu|||   \n";
+    cout << "         |||Creation menu|||   \n";
     cout << "\nWrite certain date you want to create \n";
     cout << "Write the day  " << ": ";
     cin >> D;
@@ -112,8 +113,18 @@ Fecha SetValuesDate()
 
 void PrintDates(Fecha Date1Aux, Fecha Date2Aux) 
 {
-    cout << "   |||Print menu|||   \n\n";
+    cout << "     |||Print menu|||   \n\n";
     cout << "First date: " << Date1Aux;
     cout << "\n";
     cout << "Second date: " << Date2Aux;
+}
+
+void PrintAdd(Fecha Result, Fecha DateA, Fecha DateB)
+{
+    cout << "     |||Addition menu|||   \n\n";
+    cout << "The adition between [" << DateA << "] and [" << DateB << "] Gives: ["<< Result <<"]";
+    cout << "\n\nInput something to continue.\n";
+    cin.ignore();
+    cin.get();
+    system("cls");
 }
