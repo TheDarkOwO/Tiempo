@@ -12,7 +12,7 @@ int main()
 {
     Fecha Date1, Date2;
     char Option = '0'; bool Check = false;
-    while (Option != '4')
+    while (Option != '5')
     {
         Menu();
         cin >> Option;
@@ -83,19 +83,13 @@ int main()
                         case '1':
                         {
                             Fecha Date4 = Date1 - Date2;
-                            PrintAdd(Date4, Date1, Date2);
-                            cin.ignore();
-                            cin.get();
-                            system("clear");
+                            PrintSub(Date4, Date1, Date2);
                             break;
                         }
                         case '2':
                         {
                             Fecha Date4 = Date2 - Date1;
-                            PrintAdd(Date4, Date1, Date2);
-                            cin.ignore();
-                            cin.get();
-                            system("clear");
+                            PrintSub(Date4, Date1, Date2);
                             break;
                         }
                         case '3':
