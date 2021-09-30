@@ -134,7 +134,7 @@ Fecha Fecha::operator-(Fecha Aux)
             if (!(Total.dia < 2))
             {
                 --Total.dia;
-            }
+            } 
             else
             {
                 if (Total.mes == 2 && anioBisiesto(anio))
